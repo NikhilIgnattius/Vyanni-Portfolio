@@ -8,7 +8,7 @@ document.addEventListener('mousemove', (e) => {
 // Typewriter effect
 const typewriter = document.querySelector('.typewriter');
 const phrases = [
-    'Marketeer',
+    'Marketer',
     'Business Development',
 ];
 
@@ -29,11 +29,11 @@ function type() {
 
     if (!isDeleting && charIndex === currentPhrase.length) {
         isDeleting = true;
-        setTimeout(type, 2000);
+        setTimeout(type, 1000);
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(type, 500);
+        setTimeout(type, 5000);
     } else {
         setTimeout(type, isDeleting ? 100 : 200);
     }
