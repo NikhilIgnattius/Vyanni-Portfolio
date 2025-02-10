@@ -29,11 +29,11 @@ function type() {
 
     if (!isDeleting && charIndex === currentPhrase.length) {
         isDeleting = true;
-        setTimeout(type, 1000);
+        setTimeout(type, 5000);
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(type, 5000);
+        setTimeout(type, 1000);
     } else {
         setTimeout(type, isDeleting ? 100 : 200);
     }
