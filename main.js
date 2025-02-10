@@ -5,6 +5,7 @@ let stayTime = 60000; // 1 minute = 60000 milliseconds
 let typingDelay = 200; // Speed at which characters are typed
 let deletingDelay = 100; // Speed at which characters are deleted
 let phraseChangeDelay = 2000;
+console.log("working...")
 // Typewriter effect
 const typewriter = document.querySelector('.typewriter');
 const phrases = [
