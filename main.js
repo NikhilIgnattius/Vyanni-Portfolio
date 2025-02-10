@@ -5,13 +5,9 @@ const phrases = [
     'Business Development',
 ];
 
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
 function type() {
     const currentPhrase = phrases[phraseIndex];
-    
+
     if (isDeleting) {
         typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
@@ -21,14 +17,17 @@ function type() {
     }
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-        isDeleting = true;
-        setTimeout(type, 5000);
+        // Phrase is fully typed, stay for 1 minute
+        setTimeout(() => {
+            isDeleting = true;
+            setTimeout(type, deletingDelay);
+        }, stayTime);
     } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
+        // Phrase is fully deleted, switch to next phrase
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(type, 1000);
+        setTimeout(type, phraseChangeDelay);
     } else {
-        setTimeout(type, isDeleting ? 100 : 200);
+        setTimeout(type, isDeleting ? deletingDelay : typingDelay);
     }
 }
 
